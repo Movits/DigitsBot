@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 
 # Load tokens and API keys from environment variables
 load_dotenv()
-BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
 YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
 
 # Set up the bot with default intents and the desired command prefix
@@ -181,4 +181,4 @@ async def stop(ctx):
     else:
         await ctx.send("I'm not connected to a voice channel.") # Send an error message if the bot is not connected to a voice channel
 
-bot.run(BOT_TOKEN)
+bot.run(DISCORD_BOT_TOKEN)
