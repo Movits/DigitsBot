@@ -1,4 +1,5 @@
 import os # Import the OS module for file handling
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'C:\\Users\\rober\\OneDrive\\Área de Trabalho\\Desktop\\Programming\\Python Files\\DigitsBot\\qwertybot-384317-49ed34418dbf.json'
 import discord # Import Discord.py library
 from googleapiclient.discovery import build # Import the Google API client
 from discord.ext import commands # Import the commands extension for Discord.py
