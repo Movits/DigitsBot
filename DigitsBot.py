@@ -9,11 +9,25 @@ from discord.utils import get # Import the 'get' utility from Discord.py
 from discord import FFmpegPCMAudio # Import the FFmpegPCMAudio class for playing audio
 from yt_dlp import YoutubeDL # Import the YoutubeDL class from yt-dlp
 from dotenv import load_dotenv
+import aiohttp
 
 # Load tokens and API keys from environment variables
 load_dotenv()
 DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
 YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
+
+# Create a custom session with proxy settings
+proxy_url = 'http://proxy.server:3128'
+session = aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False), trust_env=True)
+session.trust_env = True
+
+class MyBot(commands.Bot):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.http_session = session
+
+    async def on_ready(self):
+        print(f'{self.user} has connected to Discord!')
 
 # Set up the bot with default intents and the desired command prefix
 intents = discord.Intents.default()
