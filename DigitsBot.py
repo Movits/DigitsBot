@@ -16,11 +16,6 @@ load_dotenv()
 DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
 YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
 
-# Create a custom session with proxy settings
-proxy_url = 'http://proxy.server:3128'
-session = aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False), trust_env=True)
-session.trust_env = True
-
 class MyBot(commands.Bot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
