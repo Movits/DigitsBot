@@ -24,7 +24,11 @@ session.trust_env = True
 class MyBot(commands.Bot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.http_session = session
+
+    async def start(self, *args, **kwargs):
+        # This line creates an aiohttp session within an async context
+        self.http_session = aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False), trust_env=True)
+        await super().start(*args, **kwargs)
 
     async def on_ready(self):
         print(f'{self.user} has connected to Discord!')
