@@ -131,9 +131,6 @@ async def play_audio(ctx, url):
     # Disconnect after playback
     await ctx.bot.loop.create_task(disconnect_after_playback(voice_client))
 
-
-
-
 # Command to search for and play a video's audio from YouTube
 @bot.command(name='play')
 async def play(ctx, *, search_query):
