@@ -26,6 +26,28 @@ youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
 
 voice_client = None # Initialize a variable to store the bot's voice clients
 
+# Options to be used by YoutubeDL to download the audio
+YDL_OPTS = {
+    'format': 'bestaudio/best',  # Audio quality
+    'postprocessors': [{  # Audio processing options
+    'key': 'FFmpegExtractAudio',  # Extract audio from video using FFmpeg
+    'preferredcodec': 'mp3',  # Preferred audio codec
+    'preferredquality': '192',  # Preferred audio quality
+    }],
+    'outtmpl': 'downloads/%(id)s.%(ext)s',  # Output file name format
+    'restrictfilenames': True,  # Restrict file names to ASCII characters only
+    'nocheckcertificate': True,  # Don't check SSL certificates
+    'ignoreerrors': False,  # Don't ignore download errors
+    'logtostderr': False,  # Don't log to standard error
+    'quiet': True,  # Suppress console output
+    'no_warnings': True,  # Suppress warnings
+    'default_search': 'auto',  # Search for the best matching video
+    'source_address': '0.0.0.0',  # Set the source address to 0.0.0.0
+    'nooverwrites': True,  # Don't overwrite existing files
+    'noplaylist': True,  # Don't download playlists
+    'merge_output_format': 'mp3',  # Merge audio and video into an MP3 file
+}
+
 # Event to run when the bot is connected to Discord
 @bot.event
 async def on_ready():
@@ -40,30 +62,8 @@ async def join_voice_channel(ctx):
         await ctx.voice_client.move_to(channel) # Move the bot to the user's voice channel
 
 async def download_audio(ctx, url):
-    # Options to be used by YoutubeDL to download the audio
-    ydl_opts = {
-        'format': 'bestaudio[abr<=128]/best',  # Audio quality
-        'postprocessors': [{  # Audio processing options
-            'key': 'FFmpegExtractAudio',  # Extract audio from video using FFmpeg
-            'preferredcodec': 'mp3',  # Preferred audio codec
-            'preferredquality': '192',  # Preferred audio quality
-        }],
-        'outtmpl': 'downloads/%(title)s-%(id)s.%(ext)s',  # Output file name format
-        'restrictfilenames': True,  # Restrict file names to ASCII characters only
-        'nocheckcertificate': True,  # Don't check SSL certificates
-        'ignoreerrors': False,  # Don't ignore download errors
-        'logtostderr': False,  # Don't log to standard error
-        'quiet': True,  # Suppress console output
-        'no_warnings': True,  # Suppress warnings
-        'default_search': 'auto',  # Search for the best matching video
-        'source_address': '0.0.0.0',  # Set the source address to 0.0.0.0
-        'nooverwrites': True,  # Don't overwrite existing files
-        'noplaylist': True,  # Don't download playlists
-        'merge_output_format': 'mp3',  # Merge audio and video into an MP3 file
-    }
-
     # Create a YoutubeDL object with the specified options
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+    with yt_dlp.YoutubeDL(YDL_OPTS) as ydl:
         # Extract information about the video at the given URL
         info = ydl.extract_info(url, download=False)
         # Get the video title and ID from the information
