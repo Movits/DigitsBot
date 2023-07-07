@@ -80,16 +80,6 @@ async def download_audio(ctx, url):
     # Return the filename of the downloaded audio file
     return filename
 
-# Function to rename the downloaded audio file
-def my_hook(d):
-    if d['status'] == 'finished': # If the download is finished
-        file_path = d['filename'] # Get the downloaded file's path
-        file_ext = os.path.splitext(file_path)[1] # Get the file extension
-        if file_ext.lower() == '.mp3': # If the file extension is '.mp3'
-            new_file_path = os.path.splitext(file_path)[0] + '.1' + file_ext # Create a new file path with '.1' added to the name
-            os.rename(file_path, new_file_path) # Rename the file with the new file path
-            print(f'Renamed {file_path} to {new_file_path}') # Print the renaming information
-
 async def disconnect_after_playback(voice_client):
     while voice_client.is_playing() or voice_client.is_paused():
         await asyncio.sleep(1)
