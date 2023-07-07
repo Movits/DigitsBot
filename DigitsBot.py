@@ -70,7 +70,7 @@ async def download_audio(ctx, url):
         title = info.get('title', None)
         video_id = info.get('id', None)
         # Construct the output file name from the title and ID
-        filename = f"downloads/{title}-{video_id}.mp3"
+        filename = f"downloads/{video_id}.mp3"
 
         # Check if the file already exists
         if not os.path.exists(filename):
@@ -98,13 +98,7 @@ async def play_audio(ctx, url):
     if voice_client.is_playing():
         voice_client.stop()
 
-    # Download the audio
-    ydl_opts = {
-        'format': 'bestaudio/best',
-        'postprocessors': [{'key': 'FFmpegExtractAudio', 'preferredcodec': 'mp3', 'preferredquality': '192'}],
-        'outtmpl': 'downloads/%(id)s.%(ext)s',
-    }
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+    with yt_dlp.YoutubeDL(YDL_OPTS) as ydl:
         # Get the video info
         info = ydl.extract_info(url, download=False)
 
