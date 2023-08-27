@@ -8,7 +8,7 @@ Digits Bot is a Discord music bot that allows you to enjoy music in your servers
 
 ## Adding Digits Bot to Your Server
 
-To add Digits Bot to your Discord server, simply click on the following link: [Add Digits Bot to Your Server](https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=YOUR_PERMISSIONS)
+To add Digits Bot to your Discord server, simply click on the following link: [Add Digits Bot to Your Server](https://discord.com/api/oauth2/authorize?client_id=1096964083305173072&permissions=8&scope=bot)
 
 
 ## Current Status
