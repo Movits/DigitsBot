@@ -64,7 +64,12 @@ async def download_audio(ctx, url):
         filename = f"downloads/{video_id}.mp3"  # Create a filename based on the video ID.
 
         if not os.path.exists(filename):  # If the file doesn't already exist,
-            ydl.download([url])  # download the audio.
+            try:
+                ydl.download([url])  # download the audio.
+            except yt_dlp.DownloadError as e:
+                print(f"Error downloading video: {e}")
+                await ctx.send(f"Error downloading audio: {e}")
+                return None
 
     return filename  # Return the filename.
 
@@ -77,6 +82,10 @@ async def play_audio(ctx, url):
 
     audio_file = await download_audio(ctx, url)  # Download the audio.
 
+    if audio_file is None:
+        await ctx.send("Failed to download audio.")
+        return
+
     # Function to run after the audio finishes playing.
     def after_playing(error):
         coro = voice_client.disconnect()  # Coroutine to disconnect from voice channel.
@@ -88,6 +97,7 @@ async def play_audio(ctx, url):
 
     # Play the audio.
     voice_client.play(discord.FFmpegPCMAudio(executable="ffmpeg", source=audio_file), after=after_playing)
+
 
 # Command to search for and play a YouTube video's audio.
 @bot.command(name='play')
