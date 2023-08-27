@@ -10,6 +10,11 @@ Digits Bot is a Discord music bot that allows you to enjoy music in your servers
 
 To add Digits Bot to your Discord server, simply click on the following link: [Add Digits Bot to Your Server](https://discord.com/api/oauth2/authorize?client_id=1096964083305173072&permissions=8&scope=bot)
 
+## Available Commands
+
+- `/play [song name]`: Use this command to search for a song. The bot will display four options, and you can simply press a number from 1 to 4 to play your desired song.
+
+- `/stop`: Use this command to stop the currently playing song.
 
 ## Current Status
 
