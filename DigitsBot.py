@@ -29,7 +29,7 @@ YDL_OPTS = {
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',  # Use FFmpeg to extract audio.
         'preferredcodec': 'mp3',  # Save the audio as an mp3.
-        'preferredquality': '192',  # Choose quality (bitrate) of 192.
+        'preferredquality': '128', # Quality of the sound
     }],
     'outtmpl': 'downloads/%(id)s.%(ext)s',  # Output template for saved files.
     'restrictfilenames': True,  # Restrict filenames to ASCII characters.
