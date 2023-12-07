@@ -143,5 +143,10 @@ async def stop(ctx):
     else:
         await ctx.send("I'm not connected to a voice channel.")  # Send a messageif the bot is not in a voice channel.
 
+async def setup_hook():
+    await bot.load_extension('auto_reply')
+
+bot.setup_hook = setup_hook
+
 # Start the bot using the token.
 bot.run(DISCORD_BOT_TOKEN)  # This line actually starts the bot with the token you got from Discord.
