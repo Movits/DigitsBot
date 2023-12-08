@@ -16,7 +16,7 @@ To add DigitsBot to your Discord server, simply click on the following link: [Ad
 
 - `/stop`: Use this command to stop the song that is currently playing.
 
-- `/addresponse [img/video/gif url or text]`: Use this command to send a response automatically whenever someone @ you on discord inside a text channel.
+- `/addresponse [img/video/gif url or text]`: Use this command to add a response for the bot to automatically send whenever someone @ you inside a text channel.
 
 ## Current Status
 
