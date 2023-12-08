@@ -1,38 +1,38 @@
-# Digits Bot
+# DigitsBot
 
 ## Introduction
 
-Hello and welcome to Digits Bot! 
+Hello and welcome to DigitsBot! 
 
-Digits Bot is a Discord music bot that allows you to enjoy music in your servers. We're glad you're here, and we're excited to introduce you to our project.
+DigitsBot started off as a Discord music bot that allows you to enjoy music in your servers. I'm glad you're here, and I'm excited to introduce you to this project.
 
-## Adding Digits Bot to Your Server
+## Adding DigitsBot to Your Server
 
-To add Digits Bot to your Discord server, simply click on the following link: [Add Digits Bot to Your Server](https://discord.com/api/oauth2/authorize?client_id=1096964083305173072&permissions=8&scope=bot)
+To add DigitsBot to your Discord server, simply click on the following link: [Add DigitsBot to Your Server](https://discord.com/api/oauth2/authorize?client_id=1096964083305173072&permissions=8&scope=bot)
 
 ## Available Commands
 
 - `/play [song name]`: Use this command to search for a song. The bot will display four options, and you can simply press a number from 1 to 4 to play your desired song.
 
-- `/stop`: Use this command to stop the currently playing song.
+- `/stop`: Use this command to stop the song that is currently playing.
+
+- `/addresponse [img/video/gif url or text]`: Use this command to send a response automatically whenever someone @ you on discord inside a text channel.
 
 ## Current Status
 
-We want to be transparent about the current state of Digits Bot. Right now, the bot may be a bit slow due to hosting service limitations and other technical issues. We apologize for any inconvenience this may cause and appreciate your patience.
+I want to be transparent about the current state of DigitsBot. Right now, the music aspect of the bot may be a bit slow due to hosting service limitations taking up to 15 seconds the first time a song is ever played on the bot and about 2-3 seconds once the bot has played that song already. I apologize for any inconvenience this may cause and appreciate your patience.
 
 ## Future Developments
 
-We are actively working on new implementations and improvements to make Digits Bot even better. Stay tuned for exciting updates and enhancements!
+I am actively working on new implementations and improvements to make DigitsBot even better. Stay tuned for exciting updates and enhancements!
 
 ## Get Involved
 
-DigiBot is an open-source project, and we welcome contributions from the community. If you'd like to help with the development process, feel free to contribute to our GitHub repository: [Digits Bot GitHub Repository](https://github.com/Movits/DigitsBot)
+If you'd like to help with the development process, feel free to contribute by sending suggestions, feedback, or questions. Your input is invaluable in making DigitsBot the best it can be.
 
-If you have any suggestions, feedback, or questions, please don't hesitate to contact us. Your input is invaluable in making Digits Bot the best it can be.
+## Contact
 
-## Contact Us
-
-You can reach out to us through the following channels:
+You can reach out to me through the following channels:
 - Discord: [RMovits#7639]
 - Email: [robertomovits@gmail.com]
 
